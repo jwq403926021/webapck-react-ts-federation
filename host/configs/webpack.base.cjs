@@ -60,11 +60,11 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: 'public/index.html',
+      template: path.join(__dirname, '../public/index.html'),
       title: 'Host App',
-      filename: 'index.html',
       chunks: ['main'],
       publicPath: '/',
+      favicon: path.join(__dirname, '../public/favicon.ico'),
     }),
   ],
   resolve: {

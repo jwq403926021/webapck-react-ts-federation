@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "pre-serve": "webpack --watch --config configs/webpack.dev.cjs",
-    "build": "webpack --progress --config configs/webpack.prod.js",
+    "build": "webpack --progress --config configs/webpack.prod.cjs",
     "serve": "webpack serve --config configs/webpack.dev.cjs",
     "lint": "eslint ."
   },

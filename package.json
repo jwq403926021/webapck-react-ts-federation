@@ -3,15 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "lerna run build",
-    "start": "lerna run serve"
+    "build": "cross-env NODE_ENV=production lerna run build",
+    "serve": "cross-env NODE_ENV=development lerna run serve"
   },
   "author": "",
   "license": "MIT",
   "description": "",
-  "dependencies": {},
   "devDependencies": {
-    "lerna": "^8.1.9",
-    "concurrently": "^9.1.0"
+    "cross-env": "^7.0.3",
+    "lerna": "^8.1.9"
   }
 }

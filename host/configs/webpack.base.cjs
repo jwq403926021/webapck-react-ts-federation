@@ -13,6 +13,8 @@ const initModuleFederationConfig = federationConfig({
   APP1: 'http://localhost:3001'
 });
 
+// console.log('host process.env:', process.env)
+
 module.exports = {
   entry: {
     main: path.join(__dirname, '../src/index.js'),

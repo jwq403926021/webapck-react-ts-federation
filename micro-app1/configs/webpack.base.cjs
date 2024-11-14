@@ -5,6 +5,8 @@ const { FederatedTypesPlugin } = require('@module-federation/typescript');
 const { ModuleFederationPlugin } = webpack.container;
 const federationConfig = require('./federationConfig.cjs');
 
+// console.log('micro-app1 process.env:', process.env)
+
 module.exports = {
   entry: {
     main: path.join(__dirname, '../src/index.js'),

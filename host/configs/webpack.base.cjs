@@ -14,7 +14,7 @@ const injectedEnv = Object.keys(dotenv.parsed).reduce((previousValue, key) => {
 }, {})
 
 const initModuleFederationConfig = federationConfig({
-  APP1: 'http://localhost:3001'
+  APP1: 'http://localhost:3001' // todo: when we build the project, we need to change the url to real server url base on (dotenv.parsed) .env parameter.
 });
 
 // console.log('host process.env:', process.env)

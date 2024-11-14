@@ -13,8 +13,10 @@ export const reducer = (state: CachedRouteDataType, action: CachedRouteDataActio
   switch (action.type) {
     case 'add':
       if (!state.cachedPath.includes(action.payload.cachedPath)) {
-        state.cachedPath = [...state.cachedPath, action.payload.cachedPath]
-        state.cachedElementMap[action.payload.cachedPath] = action.payload.cachedElement
+        state = {
+          cachedPath: [...state.cachedPath, action.payload.cachedPath],
+          cachedElementMap: {...state.cachedElementMap, [action.payload.cachedPath]: action.payload.cachedElement}
+        }
       }
       return state
     default:

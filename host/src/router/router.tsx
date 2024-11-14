@@ -1,20 +1,22 @@
 import RootLayout from "../layout/RootLayout.tsx";
-import {createBrowserRouter} from "react-router-dom";
+import {createBrowserRouter, RouteObject} from "react-router-dom";
 import Home from "../pages/Home.tsx";
-import Order from "../pages/Order.tsx";
-import MasterData from "../pages/MasterData.tsx";
+// import Order from "../pages/Order.tsx";
+// import MasterData from "../pages/MasterData.tsx";
+// import User from "../pages/User.tsx";
 
 import {lazy, Suspense} from "react";
+import RootErrorComponent from "../components/RootErrorComponent.tsx";
 // const Home = lazy(() => import('../pages/Home.tsx'));
-// const Order = lazy(() => import('../pages/Order.tsx'));
-// const MasterData = lazy(() => import('../pages/MasterData.tsx'));
+const Order = lazy(() => import('../pages/Order.tsx'));
+const MasterData = lazy(() => import('../pages/MasterData.tsx'));
 const User = lazy(() => import('app1/User'));
 
-
-export const routes = [
+export const routes: RouteObject[] = [
   {
     path: "/",
     element: <RootLayout/>,
+    errorElement: <RootErrorComponent/>,
     children: [
       {
         path: "",
@@ -31,6 +33,8 @@ export const routes = [
             <Order/>
           </Suspense>
         ),
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         needCache: true
       },
       {
@@ -40,6 +44,8 @@ export const routes = [
             <User/>
           </Suspense>
         ),
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         needCache: true
       },
       {

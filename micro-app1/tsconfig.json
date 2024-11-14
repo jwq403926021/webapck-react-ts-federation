@@ -25,5 +25,6 @@
     /*customize for project*/
     "noImplicitAny": false
   },
-  "include": ["src"]
+  "include": ["**/*.ts", "**/*.tsx", "*.d.ts", "**/*.js", "src", "@mf-types"],
+  "exclude": ["node_modules"]
 }

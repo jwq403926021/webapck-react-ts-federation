@@ -5,9 +5,13 @@ const { ModuleFederationPlugin } = webpack.container;
 const { FederatedTypesPlugin } = require('@module-federation/typescript');
 const federationConfig = require('./federationConfig.cjs');
 
-// const dotenv = require('dotenv').config({
-//   path: path.join(__dirname, '../.env'),
-// });
+const dotenv = require('dotenv').config({
+  path: path.join(__dirname, `../../.env.${process.env.BS_ENV}`),
+});
+const injectedEnv = Object.keys(dotenv.parsed).reduce((previousValue, key) => {
+  previousValue[`process.env.${key}`] = `'${dotenv.parsed[key]}'`;
+  return previousValue;
+}, {})
 
 const initModuleFederationConfig = federationConfig({
   APP1: 'http://localhost:3001'
@@ -47,9 +51,7 @@ module.exports = {
     ],
   },
   plugins: [
-    // new webpack.DefinePlugin({
-    //   'process.env': dotenv.parsed,
-    // }),
+    new webpack.DefinePlugin(injectedEnv),
 
     new ModuleFederationPlugin(initModuleFederationConfig),
 

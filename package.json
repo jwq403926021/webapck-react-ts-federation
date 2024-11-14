@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production lerna run build",
-    "serve": "cross-env NODE_ENV=development lerna run serve"
+    "build": "cross-env BS_ENV=prod lerna run build",
+    "serve": "cross-env BS_ENV=dev1 lerna run serve"
   },
   "author": "",
   "license": "MIT",

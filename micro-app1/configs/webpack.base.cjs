@@ -5,6 +5,13 @@ const { FederatedTypesPlugin } = require('@module-federation/typescript');
 const { ModuleFederationPlugin } = webpack.container;
 const federationConfig = require('./federationConfig.cjs');
 
+const dotenv = require('dotenv').config({
+  path: path.join(__dirname, `../../.env.${process.env.BS_ENV}`),
+});
+const injectedEnv = Object.keys(dotenv.parsed).reduce((previousValue, key) => {
+  previousValue[`process.env.${key}`] = `'${dotenv.parsed[key]}'`;
+  return previousValue;
+}, {})
 // console.log('micro-app1 process.env:', process.env)
 
 module.exports = {
@@ -39,6 +46,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin(injectedEnv),
     new ModuleFederationPlugin(federationConfig),
     new FederatedTypesPlugin({
       federationConfig,

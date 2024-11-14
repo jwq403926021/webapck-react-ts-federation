@@ -8,7 +8,7 @@ const Order: React.FC<OrderProps> = () => {
   }
   return (
     <div>
-      Order {count} -
+      Order {count} - {process.env.API_URL}
       <ul>
         <li>1</li>
         <li>1</li>

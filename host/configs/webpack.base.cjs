@@ -1,8 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const { ModuleFederationPlugin } = webpack.container;
 const { FederatedTypesPlugin } = require('@module-federation/typescript');
+const { ModuleFederationPlugin } = webpack.container;
 const federationConfig = require('./federationConfig.cjs');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -58,13 +58,10 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin(injectedEnv),
-
     new ModuleFederationPlugin(initModuleFederationConfig),
-
     new FederatedTypesPlugin({
       federationConfig: initModuleFederationConfig,
     }),
-
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../public/index.html'),
       title: 'Host App',

@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const { FederatedTypesPlugin } = require('@module-federation/typescript');
 const { ModuleFederationPlugin } = webpack.container;
-const federationConfig = require('./federationConfig.cjs');
+const generateFederationConfig = require('./federationConfig.cjs');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const dotenv = require('dotenv').config({
@@ -14,8 +14,8 @@ const injectedEnv = Object.keys(dotenv.parsed).reduce((previousValue, key) => {
   return previousValue;
 }, {})
 
-const initModuleFederationConfig = federationConfig({
-  APP1: 'http://localhost:3001' // todo: when we build the project, we need to change the url to real server url base on (dotenv.parsed) .env parameter.
+const initModuleFederationConfig = generateFederationConfig({
+  app1: 'http://localhost:3001' // todo: when we build the project, we need to change the url to real server url base on (dotenv.parsed) .env parameter.
 });
 
 const isDev = !process.env.BS_ENV.includes('prod')

@@ -1,12 +1,13 @@
 const { dependencies } = require('../package.json');
 
-const federationConfig = ({ APP1 }) => {
+const generateFederationConfig = (remoteApps) => {
   return {
     name: 'host',
     filename: 'remoteEntry.js',
-    remotes: {
-      app1: `app1@${APP1}/remoteEntry.js`
-    },
+    remotes: Object.keys(remoteApps).reduce((previousValue, key) => {
+      previousValue[key] = `${key}@${remoteApps[key]}/remoteEntry.js`
+      return previousValue
+    }, {}),
     shared: {
       ...dependencies,
       react: {
@@ -21,4 +22,4 @@ const federationConfig = ({ APP1 }) => {
   };
 };
 
-module.exports = federationConfig;
+module.exports = generateFederationConfig;

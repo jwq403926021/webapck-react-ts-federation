@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const { ModuleFederationPlugin } = webpack.container;
 const { FederatedTypesPlugin } = require('@module-federation/typescript');
 const federationConfig = require('./federationConfig.cjs');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const dotenv = require('dotenv').config({
   path: path.join(__dirname, `../../.env.${process.env.BS_ENV}`),
@@ -17,6 +18,7 @@ const initModuleFederationConfig = federationConfig({
   APP1: 'http://localhost:3001' // todo: when we build the project, we need to change the url to real server url base on (dotenv.parsed) .env parameter.
 });
 
+const isDev = !process.env.BS_ENV.includes('prod')
 // console.log('host process.env:', process.env)
 
 module.exports = {
@@ -30,8 +32,12 @@ module.exports = {
         loader: 'url-loader',
       },
       {
-        test: /\.(css|scss)$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.(c|sc)ss$/i,
+        use: [
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.(js|jsx|tsx|ts)$/,
@@ -66,6 +72,11 @@ module.exports = {
       publicPath: '/',
       favicon: path.join(__dirname, '../public/favicon.ico'),
     }),
+    ...(
+      isDev ? [] : [new MiniCssExtractPlugin({
+        filename: '[name].[contenthash].css'
+      })]
+    )
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.json', '.css', '.scss', '.jpg', '.jpeg', '.png'],

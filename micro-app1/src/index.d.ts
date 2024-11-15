@@ -1,6 +1,6 @@
-declare module "app1/*" {
-  export default any;
-}
+// declare module "app1/*" {
+//   export default any;
+// }
 declare module '*.png'
 declare module '*.jpg'
 declare module '*.jpeg'

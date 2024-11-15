@@ -48,7 +48,7 @@ module.exports = {
           {
             loader: 'ts-loader',
             options: {
-              transpileOnly: true  // 加速编译，并使用 Babel 处理最终的转换
+              transpileOnly: true // only compile, do not check type during build. if you want to check type pls use fork-ts-checker-webpack-plugin
             }
           }
         ],

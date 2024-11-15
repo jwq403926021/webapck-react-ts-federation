@@ -23,7 +23,13 @@
     "noUncheckedSideEffectImports": true,
 
     /*customize for project*/
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
   },
   "include": ["**/*.ts", "**/*.tsx", "*.d.ts", "**/*.js", "src", "@mf-types"],
   "exclude": ["node_modules"]

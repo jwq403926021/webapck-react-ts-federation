@@ -1,5 +1,6 @@
 import UserChild from "./UserChild.tsx";
 import {useState} from "react";
+import {useLocation} from "react-router";
 
 export interface UserProps {}
 const User: React.FC<UserProps> = () => {
@@ -7,6 +8,8 @@ const User: React.FC<UserProps> = () => {
   const add = () => {
     setCount(count + 1);
   }
+  const location = useLocation();
+  console.log(location)
   return (
     <div>
       User count: {count} - {process.env.API_URL}

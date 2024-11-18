@@ -1,10 +1,15 @@
 import User from "./pages/User.tsx";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <User/>
+    }
+  ])
   return (
-    <>
-      <User/>
-    </>
+    <RouterProvider router={router}></RouterProvider>
   )
 }
 

@@ -13,9 +13,6 @@ module.exports = merge(webpackBaseConfig, {
     minimize: false,
   },
   devServer: {
-    static: {
-      directory: path.join(__dirname, '../dist'),
-    },
     headers: {
       'Access-Control-Allow-Origin': '*',
     },

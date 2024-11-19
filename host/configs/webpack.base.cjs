@@ -46,7 +46,10 @@ module.exports = {
         test: /\.(js|jsx|tsx|ts)$/,
         use: [
           {
-            loader: 'babel-loader'
+            loader: 'babel-loader',
+            options: {
+              plugins: isDev ? [require.resolve('react-refresh/babel')] : [],
+            }
           },
           {
             loader: 'ts-loader',

@@ -1,5 +1,7 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const SingleReactRefresh = require("single-react-refresh-plugin")
 const webpackBaseConfig = require('./webpack.base.cjs');
 
 // @ts-ignore
@@ -23,4 +25,5 @@ module.exports = merge(webpackBaseConfig, {
     compress: false,
     historyApiFallback: true,
   },
+  plugins: [new ReactRefreshWebpackPlugin(), new SingleReactRefresh()]
 });

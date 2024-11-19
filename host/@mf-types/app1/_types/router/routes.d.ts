@@ -1,5 +1,3 @@
-declare const _default: {
-    path: string;
-    Component: import("react").FC<import("../pages/User").UserProps>;
-}[];
-export default _default;
+import { RouteObject } from "react-router";
+declare const routes: RouteObject[];
+export default routes;

@@ -9,7 +9,7 @@ const NAVIGATION: Navigation = [
     title: 'Main items',
   },
   {
-    segment: 'user',
+    segment: 'remote/user',
     title: 'user',
   },
   {

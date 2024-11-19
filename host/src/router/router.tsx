@@ -14,6 +14,7 @@ const User = lazy(() => import('app1/User'));
 
 export const routes: RouteObject[] = [
   {
+    id: 'root',
     path: "/",
     element: <RootLayout/>,
     errorElement: <RootErrorComponent/>,
@@ -55,11 +56,17 @@ export const routes: RouteObject[] = [
             <MasterData/>
           </Suspense>
         )
-      },
+      }
     ]
   }
 ]
 export const router = createBrowserRouter(routes, {
+  async patchRoutesOnNavigation({ path, patch }) {
+    if (path.startsWith("/remote")) {
+      const children = (await import('app1/Router')).default
+      patch('root', children);
+    }
+  },
   future: {
     v7_fetcherPersist: true,
     v7_normalizeFormMethod: true,

@@ -1,2 +1,2 @@
-export * from './_types/User';
-export { default } from './_types/User';
+export * from './_types/pages/User';
+export { default } from './_types/pages/User';

@@ -3,7 +3,8 @@ module.exports = {
   name: 'app1',
   filename: 'remoteEntry.js',
   exposes: {
-    './User': './src/pages/User'
+    './User': './src/pages/User',
+    './Router': './src/router/routes'
   },
   shared: {
     ...dependencies,

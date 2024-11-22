@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env BS_ENV=prod lerna run build",
-    "serve": "cross-env BS_ENV=dev1 lerna run serve"
+    "build": "cross-env BS_ENV=prod pnpm -r -parallel run build",
+    "serve": "cross-env BS_ENV=dev1 pnpm -r -parallel run serve"
   },
   "author": "",
   "license": "MIT",
   "description": "",
   "devDependencies": {
-    "cross-env": "^7.0.3",
-    "lerna": "^8.1.9"
+    "cross-env": "^7.0.3"
   }
 }

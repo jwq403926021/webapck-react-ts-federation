@@ -26,9 +26,6 @@ importers:
       axios:
         specifier: ^1.7.7
         version: 1.7.7
-      events:
-        specifier: ^3.3.0
-        version: 3.3.0
       i18next:
         specifier: ^23.16.5
         version: 23.16.8
@@ -159,9 +156,6 @@ importers:
 
   micro-app1:
     dependencies:
-      events:
-        specifier: ^3.3.0
-        version: 3.3.0
       immer:
         specifier: ^10.1.1
         version: 10.1.1

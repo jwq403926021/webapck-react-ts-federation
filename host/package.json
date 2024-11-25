@@ -14,7 +14,6 @@
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^6.1.6",
     "axios": "^1.7.7",
-    "events": "^3.3.0",
     "i18next": "^23.16.5",
     "immer": "^10.1.1",
     "path-to-regexp": "^8.2.0",

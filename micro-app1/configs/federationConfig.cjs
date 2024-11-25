@@ -7,6 +7,7 @@ module.exports = {
     './Router': './src/router/routes'
   },
   shared: {
+    ...dependencies,
     react: {
       singleton: true,
     },

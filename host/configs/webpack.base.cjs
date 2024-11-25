@@ -25,7 +25,7 @@ module.exports = {
     main: path.join(__dirname, '../src/index.js'),
   },
   output: {
-    publicPath: ''
+    publicPath: 'auto'
   },
   module: {
     rules: [

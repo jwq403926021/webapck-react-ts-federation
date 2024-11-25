@@ -1,8 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const { FederatedTypesPlugin } = require('@module-federation/typescript');
-const { ModuleFederationPlugin } = webpack.container;
+const { ModuleFederationPlugin } = require('@module-federation/enhanced/webpack');
 const generateFederationConfig = require('./federationConfig.cjs');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -24,6 +23,9 @@ const isDev = !process.env.BS_ENV.includes('prod')
 module.exports = {
   entry: {
     main: path.join(__dirname, '../src/index.js'),
+  },
+  output: {
+    publicPath: 'auto'
   },
   module: {
     rules: [
@@ -65,9 +67,6 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin(injectedEnv),
     new ModuleFederationPlugin(initModuleFederationConfig),
-    new FederatedTypesPlugin({
-      federationConfig: initModuleFederationConfig,
-    }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../public/index.html'),
       title: 'Host App',

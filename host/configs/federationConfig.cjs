@@ -9,7 +9,6 @@ const generateFederationConfig = (remoteApps) => {
       return previousValue
     }, {}),
     shared: {
-      ...dependencies,
       react: {
         singleton: true,
         requiredVersion: dependencies['react'],

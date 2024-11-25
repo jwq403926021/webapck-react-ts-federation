@@ -2,7 +2,7 @@ export type RemoteRouteProps = {
 
 };
 
-export function RemoteRoute(props: RemoteRouteProps) {
+export function RemoteRoute() {
   return (
     <>
       RemoteRoute

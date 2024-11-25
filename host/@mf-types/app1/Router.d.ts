@@ -1,2 +1,2 @@
-export * from './_types/router/routes';
-export { default } from './_types/router/routes';
+export * from './compiled-types/src/router/routes';
+export { default } from './compiled-types/src/router/routes';

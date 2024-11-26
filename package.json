@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "cross-env BS_ENV=prod pnpm -r -parallel run build",
-    "serve": "cross-env BS_ENV=dev1 pnpm -r -parallel run serve"
+    "serve": "cross-env BS_ENV=dev1 pnpm -r run serve"
   },
   "author": "",
   "license": "MIT",

@@ -9,23 +9,7 @@ const generateFederationConfig = (remoteApps) => {
       return previousValue
     }, {}),
     shared: {
-      ...dependencies,
-      react: {
-        singleton: true,
-        requiredVersion: dependencies['react'],
-      },
-      'react-dom': {
-        singleton: true,
-        requiredVersion: dependencies['react-dom'],
-      },
-      "react-router-dom": {
-        singleton: true,
-        requiredVersion: dependencies['react-router-dom'],
-      },
-      "react-router": {
-        singleton: true,
-        requiredVersion: dependencies['react-router-dom'],
-      }
+      ...dependencies
     },
   };
 };

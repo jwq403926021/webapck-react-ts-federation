@@ -1,4 +1,4 @@
-import type { PackageType as PackageType_0,RemoteKeys as RemoteKeys_0 } from './app1/apis.d.ts';
+import type { PackageType as PackageType_0,RemoteKeys as RemoteKeys_0 } from './host/apis.d.ts';
     declare module "@module-federation/runtime" {
       type RemoteKeys = RemoteKeys_0;
       type PackageType<T, Y=any> = T extends RemoteKeys_0 ? PackageType_0<T> :

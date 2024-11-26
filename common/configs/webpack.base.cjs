@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const { ModuleFederationPlugin } = require('@module-federation/enhanced/webpack');
-const generateFederationConfig = require('./federationConfig.cjs');
+const federationConfig = require('./federationConfig.cjs');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const dotenv = require('dotenv').config({
@@ -12,14 +12,8 @@ const injectedEnv = Object.keys(dotenv.parsed).reduce((previousValue, key) => {
   previousValue[`process.env.${key}`] = `'${dotenv.parsed[key]}'`;
   return previousValue;
 }, {})
-
-const initModuleFederationConfig = generateFederationConfig({
-  common: 'http://localhost:3002',
-  app1: 'http://localhost:3001' // todo: when we build the project, we need to change the url to real server url base on (dotenv.parsed) .env parameter.
-});
-
 const isDev = !process.env.BS_ENV.includes('prod')
-// console.log('host process.env:', process.env)
+// console.log('micro-app1 process.env:', process.env)
 
 module.exports = {
   entry: {
@@ -67,10 +61,10 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin(injectedEnv),
-    new ModuleFederationPlugin(initModuleFederationConfig),
+    new ModuleFederationPlugin(federationConfig),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../public/index.html'),
-      title: 'Host App',
+      title: 'Common',
       chunks: ['main'],
       publicPath: '/',
       favicon: path.join(__dirname, '../public/favicon.ico'),

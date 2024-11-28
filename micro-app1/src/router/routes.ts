@@ -1,5 +1,5 @@
 import User from '../pages/User'
-import {RemoteRoute} from "@/pages/RemoteRoute.tsx";
+import {RemoteRoute} from "../pages/RemoteRoute.tsx";
 import {RouteObject} from "react-router";
 // import {lazy} from "react";
 // const User = lazy(() => import('../pages/User'))

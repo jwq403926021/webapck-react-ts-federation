@@ -76,9 +76,6 @@ module.exports = {
     )
   ],
   resolve: {
-    alias: {
-      '@': path.join(__dirname, '../src')
-    },
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.json', '.css', '.scss', '.jpg', '.jpeg', '.png'],
   },
 };

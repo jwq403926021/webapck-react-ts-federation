@@ -1,12 +1,13 @@
 import UserChild from "./UserChild.tsx";
 import {useState} from "react";
 import {useLocation} from "react-router";
-
+import {eventbus} from 'common/utils'
 export interface UserProps {}
 const User: React.FC<UserProps> = () => {
   const [count, setCount] = useState(0);
   const add = () => {
     setCount(count + 1);
+    eventbus.emit('test');
   }
   const location = useLocation();
   console.log(location)

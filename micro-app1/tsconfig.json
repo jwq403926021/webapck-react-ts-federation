@@ -3,10 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "*": ["./@mf-types/*"],
-      "@/*": [
-        "src/*"
-      ]
+      "*": ["./@mf-types/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "*.d.ts", "**/*.js", "src", "@mf-types"],

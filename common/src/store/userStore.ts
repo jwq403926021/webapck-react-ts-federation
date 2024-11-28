@@ -4,8 +4,8 @@ import { combine } from 'zustand/middleware'
 const useUserStore = create(
   combine({
     userInfo: {
-      userId: '',
-      userName: ''
+      userId: '1222',
+      userName: '232'
     }
   }, (setState, getState, store) => ({
     setUser: () => {

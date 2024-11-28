@@ -9,7 +9,7 @@ const Order: React.FC<OrderProps> = () => {
   }
   const { userInfo, setUser } = useUserStore()
   useEffect(() => {
-    console.log(userInfo, 'final!')
+    console.log(userInfo, 'final!1')
   }, [userInfo]);
   return (
     <div>
@@ -17,7 +17,7 @@ const Order: React.FC<OrderProps> = () => {
       <ul>
         <li>{userInfo.userId}</li>
         <li>333</li>
-        <li>5555</li>
+        <li>55525</li>
         <li>1</li>
         <li>1</li>
       </ul>

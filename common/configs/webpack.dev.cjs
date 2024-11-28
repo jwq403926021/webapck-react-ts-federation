@@ -6,13 +6,14 @@ const webpackBaseConfig = require('./webpack.base.cjs');
 
 module.exports = merge(webpackBaseConfig, {
   mode: 'development',
+  output: {
+    publicPath: 'http://localhost:3002/', // or auto
+  },
   devServer: {
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
     port: 3002,
-    liveReload: false,
-    hot: true,
     open: true,
     compress: false,
     historyApiFallback: true,

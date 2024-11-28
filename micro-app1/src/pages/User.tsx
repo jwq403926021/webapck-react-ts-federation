@@ -15,7 +15,7 @@ const User: React.FC<UserProps> = () => {
     <div>
       User count: {count} - {process.env.API_URL}
       <br/><button onClick={add}>+1</button>
-      这是一个remote组件的内部组件:<UserChild/>
+      这是一个remote组件的内部组件134:<UserChild/>
     </div>
   );
 };

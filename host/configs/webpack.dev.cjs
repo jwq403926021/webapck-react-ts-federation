@@ -12,12 +12,14 @@ module.exports = merge(webpackBaseConfig, {
   optimization: {
     minimize: false,
   },
+  output: {
+    publicPath: 'http://localhost:4000/', // or auto
+  },
   devServer: {
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
     port: 4000,
-    hot: true,
     open: true,
     compress: false,
     historyApiFallback: true,

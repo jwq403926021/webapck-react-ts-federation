@@ -1,2 +1,2 @@
-export * from './compiled-types/src/utils/index';
-export { default } from './compiled-types/src/utils/index';
+export * from './compiled-types/utils/index';
+export { default } from './compiled-types/utils/index';
